@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Novie Hijab</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#f5f1eb;
+overflow-x:hidden;
+color:#4e3f38;
+}
+
+/* HEADER */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 7%;
+background:rgba(255,255,255,0.92);
+backdrop-filter:blur(12px);
+position:sticky;
+top:0;
+z-index:999;
+border-bottom:1px solid #ddd;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#7c6257;
+}
+
+.menu{
+display:flex;
+gap:25px;
+}
+
+.menu a{
+text-decoration:none;
+color:#5d4c43;
+font-weight:600;
+}
+
+/* HERO */
+
+.hero{
+padding:80px 7%;
+}
+
+.hero-box{
+background:linear-gradient(135deg,#ffffff,#eadfd3);
+border-radius:35px;
+padding:80px 40px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.hero-box h1{
+font-size:55px;
+margin-bottom:20px;
+color:#6f5449;
+}
+
+.hero-box p{
+font-size:18px;
+line-height:1.9;
+max-width:760px;
+margin:auto;
+margin-bottom:35px;
+color:#6d5d54;
+}
+
+.hero-btn{
+display:inline-block;
+padding:16px 38px;
+background:#8b6b5c;
+color:white;
+text-decoration:none;
+border-radius:50px;
+font-weight:bold;
+}
+
+/* KATALOG */
+
+.katalog{
+padding:20px 7% 100px;
+}
+
+.section-title{
+text-align:center;
+font-size:42px;
+margin-bottom:45px;
+color:#6e5347;
+}
+
+.top-admin{
+display:flex;
+justify-content:flex-end;
+gap:12px;
+margin-bottom:25px;
+}
+
+.admin-btn{
+padding:12px 22px;
+border:none;
+border-radius:14px;
+background:#8b6b5c;
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+.slider{
+display:flex;
+gap:25px;
+overflow-x:auto;
+scroll-behavior:smooth;
+padding-bottom:10px;
+}
+
+.slider::-webkit-scrollbar{
+display:none;
+}
+
+.card{
+min-width:280px;
+max-width:280px;
+background:white;
+border-radius:28px;
+overflow:hidden;
+flex-shrink:0;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.card img{
+width:100%;
+height:360px;
+object-fit:cover;
+cursor:pointer;
+}
+
+.card-content{
+padding:22px;
+}
+
+.card-content h3{
+font-size:20px;
+margin-bottom:12px;
+color:#5d4b43;
+}
+
+.price{
+font-size:22px;
+font-weight:bold;
+margin-bottom:18px;
+color:#9b745f;
+}
+
+.btn{
+display:block;
+text-align:center;
+padding:14px;
+background:#8b6b5c;
+color:white;
+text-decoration:none;
+border-radius:16px;
+font-weight:bold;
+}
+
+.edit-actions{
+display:none;
+gap:10px;
+margin-top:12px;
+}
+
+.edit-actions button{
+flex:1;
+padding:10px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.edit-btn{
+background:#eadfd3;
+color:#5c4941;
+}
+
+.delete-btn{
+background:#d46a6a;
+color:white;
+}
+
+/* ABOUT */
+
+.about{
+padding:0 7% 100px;
+}
+
+.about-box{
+background:white;
+padding:55px;
+border-radius:30px;
+box-shadow:0 10px 25px rgba(0,0,0,0.06);
+text-align:center;
+}
+
+.about-box h2{
+font-size:38px;
+margin-bottom:20px;
+color:#6f5449;
+}
+
+.about-box p{
+font-size:17px;
+line-height:1.9;
+color:#6d5d54;
+}
+
+/* FOOTER */
+
+footer{
+background:#8b6b5c;
+padding:50px 7%;
+text-align:center;
+color:white;
+}
+
+/* POPUP */
+
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(255,255,255,0.12);
+backdrop-filter:blur(16px);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:9999;
+padding:20px;
+}
+
+.popup img{
+max-width:90%;
+max-height:90%;
+border-radius:28px;
+}
+
+.close{
+position:absolute;
+top:25px;
+right:35px;
+font-size:42px;
+font-weight:bold;
+cursor:pointer;
+color:#5c4941;
+}
+
+.popup-nav{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+width:55px;
+height:55px;
+border:none;
+border-radius:50%;
+background:white;
+font-size:24px;
+cursor:pointer;
+}
+
+.left-nav{ left:30px; }
+.right-nav{ right:30px; }
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">Novie Hijab</div>
+
+<div class="menu">
+<a href="#">Home</a>
+<a href="#katalog">Katalog</a>
+<a href="#about">Tentang</a>
+<a href="#contact">Contact</a>
+</div>
+</header>
+
+<section class="hero">
+<div class="hero-box">
+<h1>Quielty Modest</h1>
+<p>Koleksi fashion premium dengan bahan berkualitas.</p>
+<a class="hero-btn" href="https://wa.me/6288807804492">Belanja Sekarang</a>
+</div>
+</section>
+
+<section class="katalog" id="katalog">
+
+<h2 class="section-title">Katalog Produk</h2>
+
+<div class="top-admin">
+<button class="admin-btn" onclick="loginAdmin()">⚙ Admin</button>
+<button class="admin-btn" id="addProductBtn" style="display:none" onclick="addProduct()">＋ Tambah Produk</button>
+</div>
+
+<div class="slider" id="slider">
+
+<!-- PRODUK 1 -->
+<div class="card">
+<img src="pkrt1.jpg"
+onclick="openGallery(['pkrt1.jpg','pkrt2.jpg','pkrt3.jpg','pkrt4.jpg'])">
+
+<div class="card-content">
+<h3>Pashmina Kaos Rayon Tencel</h3>
+<div class="price">Rp45.000</div>
+
+<a class="btn" href="https://wa.me/6288807804492">Pesan Sekarang</a>
+
+<div class="edit-actions">
+<button class="edit-btn" onclick="editProduct(this)">✏ Edit</button>
+<button class="delete-btn" onclick="deleteProduct(this)">🗑 Hapus</button>
+</div>
+</div>
+</div>
+
+<!-- PRODUK 2 -->
+<div class="card">
+<img src="pvb1.jpg"
+onclick="openGallery(['pvb1.jpg','pvb2.jpg'])">
+
+<div class="card-content">
+<h3>Pashmina Viscose Bamboo</h3>
+<div class="price">Rp48.000</div>
+
+<a class="btn" href="https://wa.me/6288807804492">Pesan Sekarang</a>
+
+<div class="edit-actions">
+<button class="edit-btn" onclick="editProduct(this)">✏ Edit</button>
+<button class="delete-btn" onclick="deleteProduct(this)">🗑 Hapus</button>
+</div>
+</div>
+</div>
+
+<!-- PRODUK 3 -->
+<div class="card">
+<img src="pvcp1.jpg"
+onclick="openGallery(['pvcp1.jpg','pvcp2.jpg','pvcp3.jpg','pvcp4.jpg'])">
+
+<div class="card-content">
+<h3>Pashmina Viscose Premium</h3>
+<div class="price">Rp70.000</div>
+
+<a class="btn" href="https://wa.me/6288807804492">Pesan Sekarang</a>
+
+<div class="edit-actions">
+<button class="edit-btn" onclick="editProduct(this)">✏ Edit</button>
+<button class="delete-btn" onclick="deleteProduct(this)">🗑 Hapus</button>
+</div>
+</div>
+</div>
+
+<!-- PRODUK 4 -->
+<div class="card">
+<img src="se1.jpg"
+onclick="openGallery(['se1.jpg','se2.jpg','se3.jpg','se4.jpg','se5.jpg'])">
+
+<div class="card-content">
+<h3>Segi Empat Voal Polos</h3>
+<div class="price">Rp25.000</div>
+
+<a class="btn" href="https://wa.me/6288807804492">Pesan Sekarang</a>
+
+<div class="edit-actions">
+<button class="edit-btn" onclick="editProduct(this)">✏ Edit</button>
+<button class="delete-btn" onclick="deleteProduct(this)">🗑 Hapus</button>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="about" id="about">
+<div class="about-box">
+<h2>NOVIE HIJAB</h2>
+<p>Menutup aurat bukan tentang kesempurnaan, Melainkan tentang ketaatan yang terus diupayaan</p>
+</div>
+</section>
+
+<footer id="contact">
+<h3>Contact person</h3>
+<p>WhatsApp : +6288807804492</p>
+</footer>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+<span class="close" onclick="closePopup()">×</span>
+<button class="popup-nav left-nav" onclick="prevImage()">❮</button>
+<img id="popup-img">
+<button class="popup-nav right-nav" onclick="nextImage()">❯</button>
+</div>
+
+<script>
+
+/* DATA STORAGE */
+function saveData(){
+localStorage.setItem("produkData", document.getElementById("slider").innerHTML);
+}
+
+window.onload = function(){
+const data = localStorage.getItem("produkData");
+if(data){
+document.getElementById("slider").innerHTML = data;
+attachEvents();
+}
+};
+
+/* POPUP */
+let currentIndex = 0;
+let galleryImages = [];
+
+function openGallery(images){
+galleryImages = images;
+currentIndex = 0;
+document.getElementById("popup").style.display = "flex";
+document.getElementById("popup-img").src = galleryImages[currentIndex];
+}
+
+function nextImage(){
+currentIndex++;
+if(currentIndex >= galleryImages.length) currentIndex = 0;
+document.getElementById("popup-img").src = galleryImages[currentIndex];
+}
+
+function prevImage(){
+currentIndex--;
+if(currentIndex < 0) currentIndex = galleryImages.length - 1;
+document.getElementById("popup-img").src = galleryImages[currentIndex];
+}
+
+function closePopup(){
+document.getElementById("popup").style.display = "none";
+}
+
+/* ADMIN */
+function loginAdmin(){
+let pass = prompt("Masukkan Password Admin");
+if(pass === "Amelia21"){
+alert("Admin Aktif");
+document.getElementById("addProductBtn").style.display = "block";
+document.querySelectorAll(".edit-actions").forEach(e => e.style.display = "flex");
+}else{
+alert("Password Salah");
+}
+}
+
+/* FILE INPUT */
+const input = document.createElement("input");
+input.type = "file";
+input.accept = "image/*";
+input.style.display = "none";
+document.body.appendChild(input);
+
+function pilihFoto(cb){
+input.onchange = function(e){
+const file = e.target.files[0];
+if(!file) return;
+const reader = new FileReader();
+reader.onload = e => cb(e.target.result);
+reader.readAsDataURL(file);
+};
+input.click();
+}
+
+/* ADD PRODUCT */
+function addProduct(){
+pilihFoto(function(foto){
+
+let nama = prompt("Nama Produk");
+if(!nama) return;
+
+let harga = prompt("Harga Produk");
+if(!harga) return;
+
+const c = document.createElement("div");
+c.className = "card";
+
+c.innerHTML = `
+<img src="${foto}" onclick="openGallery(['${foto}'])">
+
+<div class="card-content">
+<h3>${nama}</h3>
+<div class="price">${harga}</div>
+
+<a class="btn" href="https://wa.me/6288807804492">Pesan</a>
+
+<div class="edit-actions" style="display:flex">
+<button class="edit-btn">✏ Edit</button>
+<button class="delete-btn">🗑 Hapus</button>
+</div>
+</div>
+`;
+
+document.getElementById("slider").appendChild(c);
+
+attachEvents();
+saveData();
+
+});
+}
+
+/* EDIT */
+function editProduct(btn){
+
+const c = btn.closest(".card");
+
+const t = c.querySelector("h3");
+const p = c.querySelector(".price");
+const i = c.querySelector("img");
+
+let n = prompt("Edit nama", t.innerText);
+if(n) t.innerText = n;
+
+let h = prompt("Edit harga", p.innerText);
+if(h) p.innerText = h;
+
+let g = confirm("Ganti foto?");
+
+if(g){
+
+pilihFoto(f => {
+
+i.src = f;
+i.setAttribute("onclick", `openGallery(['${f}'])`);
+
+saveData();
+
+});
+
+}
+
+saveData();
+
+}
+
+/* DELETE */
+function deleteProduct(btn){
+if(confirm("Hapus produk?")){
+btn.closest(".card").remove();
+saveData();
+}
+}
+
+/* RE-ATTACH EVENTS */
+function attachEvents(){
+
+document.querySelectorAll(".card").forEach(card => {
+
+const edit = card.querySelector(".edit-btn");
+const del = card.querySelector(".delete-btn");
+
+edit.onclick = function(){
+editProduct(this);
+};
+
+del.onclick = function(){
+deleteProduct(this);
+};
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
